@@ -61,7 +61,7 @@ const HomeMap: FC = (): JSX.Element => {
     <Card className={classes.root}>
       <CardContent>
         <div className={classes.map}>
-          <ReactMapGL {...viewport} mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN} onViewportChange={(nextViewport: { width: string; height: string; latitude: number; longitude: number; zoom: number }) => setViewport(nextViewport)} mapStyle="mapbox://styles/mmakar2/cklx0jc0c3tt617pmcbq1wktx">
+          <ReactMapGL {...viewport} mapboxApiAccessToken="pk.eyJ1IjoibW1ha2FyMiIsImEiOiJja2x3emdwNjAwNTZ5MnFudmJ3ajgya2l5In0.D-AhM8XNAhLPvatufBfaLA" onViewportChange={(nextViewport: { width: string; height: string; latitude: number; longitude: number; zoom: number }) => setViewport(nextViewport)} mapStyle="mapbox://styles/mmakar2/cklx0jc0c3tt617pmcbq1wktx">
             {covidData.map((country: Country, index) => (
               <Marker key={index} latitude={country.countryInfo.lat} longitude={country.countryInfo.long}>
                 <div>
@@ -70,7 +70,7 @@ const HomeMap: FC = (): JSX.Element => {
               </Marker>
             ))}
             {selectedCountry && (
-              <Popup latitude={selectedCountry.countryInfo.lat} longitude={selectedCountry.countryInfo.long} className={classes.popup}  onClose={() => setSelectedCountry(undefined)}>
+              <Popup latitude={selectedCountry.countryInfo.lat} longitude={selectedCountry.countryInfo.long} className={classes.popup} onClose={() => setSelectedCountry(undefined)}>
                 <div>
                   <img className={classes.flag} src={selectedCountry.countryInfo.flag} alt="" />
                   <h3>{selectedCountry.country}</h3>
